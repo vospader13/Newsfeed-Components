@@ -112,3 +112,17 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+
+const god = function(title, date, firstParagraph, secondParagraph, thridParagraph) {
+//setting elements
+  const article = document.createElement('div');
+  const hTwo = document.createElement('h2');
+  const dates = document.createElement('p');
+  const para1 = document.createElement('p');
+  const para2 = document.createElement('p');
+  const para3 = document.createElement('p');
+  const expand = document.createElement('span');
+//Event listener
+
+}
