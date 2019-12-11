@@ -44,7 +44,7 @@ array.forEach(item => {
   let menuItem = document.createElement('li');
   menuItem.textContent = item;
   contents.appendChild(menuItem);
-  console.log('This is the menu Item', menuItem);
+  // console.log('This is the menu Item', menuItem);
 })
   //add back style
   menu.classList.add('menu')

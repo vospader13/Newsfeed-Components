@@ -85,6 +85,15 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'The array that I added',
+    date: 'Dec 10th, 2019',
+    firstParagraph: `A bunch of content that is added into the paragraphs. This para is the first one. `,
+
+    secondParagraph: `A bunch of content that is added into the paragraphs. This para is the Second one. `,
+
+    thirdParagraph: `A bunch of content that is added into the paragraphs. This para is the Third one. `
   }
 ];
 
@@ -114,7 +123,7 @@ const data = [
 */
 
 
-const god = function(title, date, firstParagraph, secondParagraph, thridParagraph) {
+const god = function(title, date, firstParagraph, secondParagraph, thirdParagraph) {
 //setting elements
   const article = document.createElement('div');
   const hTwo = document.createElement('h2');
@@ -124,5 +133,39 @@ const god = function(title, date, firstParagraph, secondParagraph, thridParagrap
   const para3 = document.createElement('p');
   const expand = document.createElement('span');
 //Event listener
+  hTwo.addEventListener('click', function(event) {
+  article.classList.toggle('article-open');
+  para1.classList.toggle('toggle-on');
+  para2.classList.toggle('toggle-on');
+  para3.classList.toggle('toggle-on');
+})
+// append data
+let appending = (function() {
+  return article.appendChild(hTwo),
+    article.appendChild(dates),
+    article.appendChild(para1),
+    article.appendChild(para2),
+    article.appendChild(para3),
+    article.appendChild(expand);
+}());
+// add class data
 
+let contents = (function() {
+  return article.classList.add('article'),
+    dates.classList.add('date'),
+    expand.classList.add('expandButton', 'article-open'),
+    hTwo.textContent = title,
+    dates.textContent = date,
+    para1.textContent = firstParagraph,
+    para2.textContent = secondParagraph,
+    para3.textContent = thirdParagraph,
+    expand.textContent = '\u25bc';
+}());
+
+return article;
 }
+// console.log('this is the article', god);
+const articles = document.querySelector('.articles');
+data.forEach(artData => {
+  articles.appendChild(god(artData.title, artData.date, artData.firstParagraph, artData.secondParagraph, artData.thirdParagraph))
+})
